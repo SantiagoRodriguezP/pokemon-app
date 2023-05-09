@@ -1,6 +1,6 @@
-import React from 'react'
-import { Navbar, Button, Link, Text, Card, Radio, Spacer } from "@nextui-org/react"
+import { Navbar, Link, Text, } from "@nextui-org/react"
 import Image from "next/image"
+import NextLink from 'next/link'
 
 export const NavBarDefault = () => {
   return (
@@ -12,11 +12,17 @@ export const NavBarDefault = () => {
           width={70}
           height={70}
         />
-        <Text h2>P</Text>
-        <Text h3>ókemon</Text>
+        <NextLink href='/' passHref legacyBehavior>
+          <Link>
+            <Text h2>P</Text>
+            <Text h3>ókemon</Text>
+          </Link>
+        </NextLink>
       </Navbar.Brand>
       <Navbar.Content>
-        <Text>Favoritos</Text>
+        <Link href='/favorites'>
+          <Text color="white">Favoritos</Text>
+        </Link>
       </Navbar.Content>
     </Navbar>
   )

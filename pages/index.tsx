@@ -12,11 +12,10 @@ interface Props {
 }
 
 export const HomePage: NextPage<Props> = ({ pokemons }) => {
-  console.log(pokemons);
   return (
     <>
       <Layout title="Listado de Pókemones">
-        <NavBarDefault />
+        
         <Grid.Container gap={2}>
           {
             pokemons.map((pokemon) => (<PokemonCard pokemon={pokemon} key={pokemon.id} />))
@@ -36,9 +35,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index + 1}.svg`
   }));
 
-  console.log(data);
-  //const { data } = await  // your fetch function here 
-  console.log("Hola santiago");
+
   return {
     props: {
       pokemons
