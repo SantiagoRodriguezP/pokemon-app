@@ -34,9 +34,7 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
         <Card.Footer css={{ justifyItems: "flex-start" }}>
           <Row wrap="wrap" justify="space-between" align="center">
             <Text b transform='capitalize'>{name}</Text>
-            <Text>
-              {id}
-            </Text>
+            <Text>{id}</Text>
           </Row>
         </Card.Footer>
       </Card>

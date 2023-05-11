@@ -6,6 +6,7 @@ import pokeAPi from '../api/pokeApi';
 import { PokemonListResponse, SmallPokemon } from "../interface";
 import { Grid } from "@nextui-org/react";
 import { PokemonCard } from "../components/pokemon";
+import { loadPokemons } from "../utils";
 
 interface Props {
   pokemons: SmallPokemon[]
@@ -27,9 +28,10 @@ export const HomePage: NextPage<Props> = ({ pokemons }) => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const { data } = await pokeAPi.get<PokemonListResponse>('/pokemon?limit=151');
+  //const { data } = await pokeAPi.get<PokemonListResponse>('/pokemon?limit=151');
+  const data = await loadPokemons();
 
-  const pokemons: SmallPokemon[] = data.results.map((pokemon, index) => ({
+  const pokemons: SmallPokemon[] = data.map((pokemon, index) => ({
     ...pokemon,
     id: index + 1,
     img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index + 1}.svg`
